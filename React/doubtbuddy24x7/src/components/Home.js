@@ -55,7 +55,7 @@ export default function Home(props) {
   }
   
     adduser();
-    changeStatus();
+    // changeStatus();
   }, []);
   return (
     <>

@@ -12,6 +12,7 @@ export default function Techstack() {
         try {
             // reponse->Selected User
             setLoading(true);
+            console.log(techStack);
             const response = await axios.get(`http://localhost:3003/user/match/${techStack}`);
             if(response){
                 setLoading(false);

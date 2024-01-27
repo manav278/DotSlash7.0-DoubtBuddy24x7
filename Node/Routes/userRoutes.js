@@ -10,13 +10,14 @@ import {
 import user from "../Model/user.js";
 const router = Express.Router();
 //current loged in user
-let currentUser;
+let currentUser = new user();
 
 //user selected according to our algorithm for solving the doubt of the current user
-let selectedUser;
+let selectedUser = new user();
 
 //route for login/signup of the user
 router.post("/login", async (req, res) => {
+  
   let result = await getUserByEmail(req.body.email);
   if (result == null) {
     result = await saveUser(req.body);
@@ -30,12 +31,14 @@ router.post("/login", async (req, res) => {
     }
   } else {
     currentUser = result;
+    
     res.status(200).json(result);
   }
 });
 
 //route for setting up the status of the user on the website
 router.get("/status/:status", async (req, res) => {
+  
   const result = await setStatus(req.params.status, currentUser);
   if (result == null) {
     res.status(400).json({ msg: "Some Error is Their...Please try later..." });
@@ -53,12 +56,13 @@ router.get("/info", async (req, res) => {
 router.get("/match/:techstack", async (req, res) => {
   const techstack = req.params.techstack.split(",");
   const result = await selectUser(techstack, currentUser);
-  selectedUser = result;
+  
   if (result == null) {
     res.status(400).json({
       error: "Users are not present or some network error is their...",
     });
   } else {
+    selectedUser = result;
     return res.status(200).json(result);
   }
 });
