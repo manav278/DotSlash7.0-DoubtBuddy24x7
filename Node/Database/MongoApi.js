@@ -78,6 +78,7 @@ async function selectUser(techstack, currentUser) {
     if (rating_tech_users.length == 1) {
       return rating_tech_users[0];
     } else {
+      
       let growthrate_rating_tech_users = [];
       //filtering users based on growth rates of the users and current user
       if (currentUser.growthrate > 0) {
@@ -147,20 +148,22 @@ async function selectUser(techstack, currentUser) {
     }
   }
 }
-let link = null;
-async function getMeetLink(link) {
-  while (link == null);
-  return link;
-}
-function setLink(l) {
-  link = l;
-}
+
+// function setLink(l) {
+//   link = l;
+// }
+// let link = null;
+// async function getMeetLink(link) {
+//   while (link == null);
+//   return link;
+// }
+
 
 export {
   saveUser,
   getUserByEmail,
   setStatus,
   selectUser,
-  getMeetLink,
-  setLink,
+  // getMeetLink,
+  // setLink,
 };

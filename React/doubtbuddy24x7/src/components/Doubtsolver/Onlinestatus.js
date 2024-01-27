@@ -9,7 +9,7 @@ const OnlineStatus = () => {
     console.log("Hello");
     setOnlineStatus(false);
     try {
-      await axios.get(`http://localhost:3003/user/status/false`);
+      await axios.get(`http://localhost:3001/user/status/false`);
     } catch (e) {
       console.error(e);
     }
@@ -19,7 +19,7 @@ const OnlineStatus = () => {
   const handleDoubtSolver = async () => {
     setOnlineStatus(true);
     try {
-      await axios.get(`http://localhost:3003/user/status/true`);
+      await axios.get(`http://localhost:3001/user/status/true`);
     } catch (e) {
       console.error(e);
     }

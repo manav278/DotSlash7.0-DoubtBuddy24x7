@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/Authentication/Login';
 import WatingScreen from './components/Doubtsolver/WatingScreen';
 import RangeSliders from './components/RangeSliders';
+import VideoConference from './components/VideoConference';
+import VideoConferenceSolver from './components/Doubtsolver/VideoConferenceSolver';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/solver/wait" element={<WatingScreen/>}></Route>
         <Route path="/doubt/ask" element={<Techstack/>}></Route>
+        <Route path="/start-meeting" element={<VideoConference/>}></Route>
+        <Route path="/start-meeting-solver" element={<VideoConferenceSolver/>}></Route>
           {/* <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />

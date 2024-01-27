@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react'
+import { auto } from '@popperjs/core';
 export default function RangeSliders() {
     const [param1, setParam1] = useState(0);
     const [param2, setParam2] = useState(0);
@@ -21,26 +22,58 @@ export default function RangeSliders() {
     };
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                Satisfactory level of doubt solver : <input type="range" min="-5" max="5" value={param1} onChange={(e) => setParam1(e.target.value)} />
-                <h1>{param1}</h1>
-                {/* ----------------------------- */}
-                Knowledge Level and Expertise : <input type="range" min="-5" max="5" value={param2} onChange={(e) => setParam2(e.target.value)} />
-                <h1>{param2}</h1>
-                {/* ----------------------------- */}
-                Interest shown by doubt solver to solve problem : <input type="range" min="-5" max="5" value={param3} onChange={(e) => setParam3(e.target.value)} />
-                <h1>{param3}</h1>
-                {/* ----------------------------- */}
-                Debugging Skills : <input type="range" min="-5" max="5" value={param4} onChange={(e) => setParam4(e.target.value)} />
-                <h1>{param4}</h1>
-                {/* ----------------------------- */}
-                Communication Skills : <input type="range" min="-5" max="5" value={param5} onChange={(e) => setParam5(e.target.value)} />
-                <h1>{param5}</h1>
-                {/* ----------------------------- */}
-                <p>Enter Your Review : </p>
-                <textarea id="myTextarea" value={text} onChange={(e) => setText(e.target.value)} rows={4} cols={50} />
-                <p>Your Preview for Review : {text}</p>
-                <button type="submit">Submit</button>
+            <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "auto" }} className="d-flex flex-column border p-4 border-light shadow-sm rounded">
+                <div className="mb-3">
+                    <label htmlFor="param1" className="form-label">Satisfactory level of doubt solver:</label>
+                    <div className='d-flex align-items-center'>
+                        <input type="range" id="param1" className="form-range d" min="-5" max="5" value={param1} onChange={(e) => setParam1(e.target.value)} />
+                        <label className="h3 mt-2 mb-4 d-inline mx-3">{param1}</label>
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="param2" className="form-label">Knowledge Level and Expertise:</label>
+                    <div className='d-flex align-items-center'>
+                        <input type="range" id="param2" className="form-range" min="-5" max="5" value={param2} onChange={(e) => setParam2(e.target.value)} />
+                        <label className="h3 mt-2 mb-4 d-inline mx-3">{param2}</label>
+
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="param3" className="form-label">Interest shown by doubt solver to solve problem:</label>
+                    <div className='d-flex align-items-center'>
+                        <input type="range" id="param3" className="form-range" min="-5" max="5" value={param3} onChange={(e) => setParam3(e.target.value)} />
+                        <label className="h3 mt-2 mb-4 d-inline mx-3">{param3}</label>
+
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="param4" className="form-label">Debugging Skills:</label>
+                    <div className='d-flex align-items-center'>
+                        <input type="range" id="param4" className="form-range" min="-5" max="5" value={param4} onChange={(e) => setParam4(e.target.value)} />
+                        <label className="h3 mt-2 mb-4 d-inline mx-3">{param4}</label>
+
+                    </div>
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="param5" className="form-label">Communication Skills:</label>
+                    <div className='d-flex align-items-center'>
+                        <input type="range" id="param5" className="form-range" min="-5" max="5" value={param5} onChange={(e) => setParam5(e.target.value)} />
+                        <label className="h3 mt-2 mb-4 d-inline mx-3">{param5}</label>
+                    </div>
+                </div>
+
+                <div className="mb-3 container-fluid" >
+                    <label htmlFor="myTextarea" className="form-label">Enter Your Review:</label>
+                    <textarea id="myTextarea" className="form-control" value={text} onChange={(e) => setText(e.target.value)} rows={4} cols={50} />
+                </div>
+
+                
+
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div >
     );
