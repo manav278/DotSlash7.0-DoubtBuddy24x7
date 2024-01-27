@@ -37,6 +37,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 
 @app.route('/positivityrate_endpoint', methods=['POST'])
 def json_endpoint():
+    print("Hello World")
     try:
         json_obj=request.get_json()
         comments=json_obj["reviews"]
