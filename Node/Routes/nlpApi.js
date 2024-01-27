@@ -13,4 +13,4 @@ async function getPositivityRate(users) {
   return response.data;
 }
 
-export { getPositivityRate };
+export { getPositivityRate};

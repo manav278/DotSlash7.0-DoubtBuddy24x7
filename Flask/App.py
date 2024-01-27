@@ -28,12 +28,25 @@ def calculate_percentage(sentiments):
     neutral_percentage = (neutral_count / total) * 100
     return positive_percentage, negative_percentage, neutral_percentage
 # ---------------------------------------------------------
-
-
 # ---------------------------------------------------------
 # Below Route is for calculating Positivty Rate
 
 from nltk.sentiment import SentimentIntensityAnalyzer
+@app.route('/demo', methods=['POST'])
+def demo():
+    try:
+        json_obj=request.get_json()
+        comment=json_obj['feedback_reviews']
+        sid = SentimentIntensityAnalyzer()
+        sentiment_score = sid.polarity_scores(comment)['compound']
+        if sentiment_score >= 0.05:
+            return jsonify({"reviews":"Positive"})
+        elif sentiment_score <= -0.05:
+            return jsonify({"reviews":"Negative"})
+        else:
+            return jsonify({"reviews":"Neutral"})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
 
 @app.route('/positivityrate_endpoint', methods=['POST'])
 def json_endpoint():
@@ -62,9 +75,9 @@ def json_endpoint():
 
 
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+# @app.route('/')
+# def hello():
+#     return 'Hello, World!'
 
 if __name__ == '__main__':
     app.run(debug=True)

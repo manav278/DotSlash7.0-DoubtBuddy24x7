@@ -13,11 +13,12 @@ async function saveUser(data) {
 
 //finds the user in the mongodb via email
 async function getUserByEmail(e) {
-  try {
-    let result = await user.find({ email: e });
-    return result[0];
-  } catch (error) {
+  let result = await user.find({ email: e });
+  if (result.length == 0) {
     return null;
+  }
+  else {
+    return result[0];
   }
 }
 

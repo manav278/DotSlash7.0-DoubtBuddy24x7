@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import NavbarComp from './NavbarComp';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 export default function Techstack() {
     const [techStack, setTechSTack] = useState('');
@@ -64,6 +65,7 @@ export default function Techstack() {
 
                 </form>
             </div>
+            <Link to="/rangesliders">RangeSliders</Link>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react'
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 export default function RangeSliders() {
     const [param1, setParam1] = useState(0);
     const [param2, setParam2] = useState(0);
@@ -42,6 +43,7 @@ export default function RangeSliders() {
                 <p>Your Preview for Review : {text}</p>
                 <button type="submit">Submit</button>
             </form>
+            
         </div >
     );
 }

@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
   onlinestatus: {
     type: Boolean,
     require: true,
-    default:false
+    default: false
   },
   reviews: {
     type: [String],
@@ -57,6 +57,9 @@ userSchema.methods = {
   setOnlineStatus: function (os) {
     this.onlinestatus = os;
   },
+  addReview: function (review) {
+    this.reviews.push(review);
+  }
 };
 
 const user = mongoose.model("developers", userSchema);
