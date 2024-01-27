@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './NavbarComp'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function Home(props) {
+  const navigate = useNavigate();
   const location = useLocation();
   const { user } = location.state || {};
   
@@ -21,7 +23,8 @@ export default function Home(props) {
           },
           body: JSON.stringify({
             "username":user.name,
-            "email":trimmeduser+"@gmail.com"
+            "email":trimmeduser+"@gmail.com",
+            "onlinestatus":false
         })
         });
         result = await result.json()
@@ -29,11 +32,28 @@ export default function Home(props) {
         if (result) {
           console.log(result);
         }
+
+       
       } catch (e) {
         console.error(e);
       }
     }
+    async function changeStatus() {
+      try {
+          const url = `http://localhost:3003/user/status/false`;
+          let result = await fetch(url);
+          result = await result.json()
+          //
+          if (result) {
+              console.log(result);
+          }
+      } catch (e) {
+          console.error(e);
+      }
+  }
+  
     adduser();
+    changeStatus();
   }, []);
   return (
     <>
@@ -50,7 +70,7 @@ export default function Home(props) {
             <Button variant="primary" className="mx-4 px-5 py-3" size='lg'>
               Ask a Doubt?
             </Button>
-            <Button variant="primary" className=' px-5 py-3' size='lg'>
+            <Button variant="primary" onClick={()=>navigate("/solver/wait")} className=' px-5 py-3' size='lg'>
               Solve a Doubt?
             </Button>
           </Col>
