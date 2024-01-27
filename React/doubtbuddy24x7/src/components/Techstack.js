@@ -19,7 +19,7 @@ export default function Techstack() {
         <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Enter TechStack Here : <input type="text" value={techStack} onChange={(e) => setTechSTack(e.target.value)}/>
+                    Enter TechStack Here : <input type="text" value={techStack} onChange={(e) => setTechSTack(e.target.value)} />
                 </label>
                 <br />
                 <button type="submit">Submit</button>
