@@ -52,7 +52,10 @@ userSchema.methods = {
       this.highestrating = newRating;
     }
     this.rating = newRating;
-  }
+  },
+  setOnlineStatus: function (os) {
+    this.onlinestatus = os;
+  },
 };
 
 const user = mongoose.model("developers", userSchema);
