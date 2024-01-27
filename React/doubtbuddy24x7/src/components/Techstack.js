@@ -4,12 +4,21 @@ import NavbarComp from './NavbarComp';
 
 export default function Techstack() {
     const [techStack, setTechSTack] = useState('');
+    const [loading, setLoading] = useState(false);
+    const user = localStorage.getItem("user");
+    const [buddy, setbuddy] = useState({});
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             // reponse->Selected User
+            setLoading(true);
             const response = await axios.get(`http://localhost:3003/user/match/${techStack}`);
-            console.log(response);
+            if(response){
+                setLoading(false);
+                setbuddy(response)
+                console.log(buddy);
+            }
+            console.log(response.data);
             console.log(techStack);
         } catch (e) {
             console.error(e);
@@ -20,6 +29,18 @@ export default function Techstack() {
         <>
             <NavbarComp/>
             <div className='my-5 d-flex flex-column justify-content-center align-items-center'>
+            {loading ? 
+            <div class="d-flex align-items-center justify-content-center vh-100">
+                <div className='h4 text-primary mx-3'>
+                    Finding the best buddy for you !..
+                </div>
+                <div class="spinner-border text-primary" role="status">    
+                </div>
+            </div>
+
+                : 
+                null
+                }
                 <form onSubmit={handleSubmit}>
                     <div class="container">
                         <div class="row align-items-center">

@@ -9,7 +9,7 @@ async function getPositivityRate(users) {
   var response = await axios.post(`${url}/positivityrate_endpoint`, {
     reviews: usersReviews,
   });
-  //console.log(response.data);
+  console.log(response.data);
   return response.data;
 }
 

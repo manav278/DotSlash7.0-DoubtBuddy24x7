@@ -22,7 +22,7 @@ async function getUserByEmail(e) {
 }
 
 //sets the online status of the current staus
-async function setOnlineStatus(status, currentUser) {
+async function setStatus(status, currentUser) {
   currentUser.setOnlineStatus(status == "true" ? true : false);
   const result = await currentUser.save();
   return result;
@@ -116,7 +116,8 @@ async function selectUser(techstack, currentUser) {
         let mini;
         if (growthrate_rating_tech_users.length == 0) {
           mini = rating_tech_users.reduce((x, curr) => {
-            x.growthrate > curr.growthrate ? curr : x;
+            const x1 = JSON.parse(x);
+            x1.growthrate > curr.growthrate ? curr : x1;
           }, rating_tech_users[0]);
 
           growthrate_rating_tech_users = rating_tech_users.filter((u) => {
@@ -158,7 +159,7 @@ function setLink(l) {
 export {
   saveUser,
   getUserByEmail,
-  setOnlineStatus,
+  setStatus,
   selectUser,
   getMeetLink,
   setLink,

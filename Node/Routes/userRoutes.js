@@ -2,7 +2,7 @@ import Express from "express";
 import {
   saveUser,
   getUserByEmail,
-  setOnlineStatus,
+  setStatus,
   selectUser,
   getMeetLink,
   setLink,
@@ -10,10 +10,10 @@ import {
 import user from "../Model/user.js";
 const router = Express.Router();
 //current loged in user
-let currentUser = new user();
+let currentUser;
 
 //user selected according to our algorithm for solving the doubt of the current user
-let selectedUser = new user();
+let selectedUser;
 
 //route for login/signup of the user
 router.post("/login", async (req, res) => {
@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
 
 //route for setting up the status of the user on the website
 router.get("/status/:status", async (req, res) => {
-  const result = await setOnlineStatus(req.params.status, currentUser);
+  const result = await setStatus(req.params.status, currentUser);
   if (result == null) {
     res.status(400).json({ msg: "Some Error is Their...Please try later..." });
   } else {
