@@ -10,10 +10,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import VideoConference from './components/VideoConference';
 import Login from './components/Authentication/Login';
 import { Auth0Provider } from '@auth0/auth0-react';
+import OnlineStatus from './components/Doubtsolver/Onlinestatus';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <Auth0Provider
       domain="dev-sx2uj72t1uenlnn7.us.auth0.com"
       clientId="Wwk2Q1l7PWMnrEnieWEJkfyrb9aF613z"
@@ -21,9 +21,8 @@ root.render(
         redirect_uri: window.location.origin
       }}
     >
-      <Login />
+      <App />
     </Auth0Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

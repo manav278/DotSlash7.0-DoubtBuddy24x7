@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
   onlinestatus: {
     type: Boolean,
     require: true,
+    default:false
   },
   reviews: {
     type: [String],

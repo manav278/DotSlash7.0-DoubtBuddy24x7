@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from 'react-bootstrap/Navbar';
 import { Button } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 export default function Login() {
     const [userinfo, setUserinfo] = useState({});
     const { loginWithRedirect } = useAuth0();
+    const navigate = useNavigate()
     const { user, isAuthenticated, isLoading } = useAuth0();
     return (
         <div className="App">
@@ -22,17 +24,19 @@ export default function Login() {
                 </Navbar.Collapse>
                 </div>
                 <div className='mx-3'>
-                <Button className='px-5 text' variant="outline-primary" onClick={()=>loginWithRedirect()}>Login</Button>
+                <Button className='px-5 text' variant="outline-primary" onClick={()=>{loginWithRedirect()}}>Login</Button>
       
                     </div>    
             </Navbar>
             {/* <button onClick={() => loginWithRedirect()}>Log In</button> */}
             {isAuthenticated && (
-                <div>
-                    <img src={user.picture} alt={user.name} />
-                    <h2>{user.name}</h2>
-                    <p>{user.email}</p>
-                </div>
+                navigate("/home", { state: {"user":user}})
+                // <Link to={{pathname:'/home',}}>Gello</Link>
+                // <div>
+                //     <img src={user.picture} alt={user.name} />
+                //     <h2>{user.name}</h2>
+                //     <p>{user.email}</p>
+                // </div>
             )}
         
         </div>
