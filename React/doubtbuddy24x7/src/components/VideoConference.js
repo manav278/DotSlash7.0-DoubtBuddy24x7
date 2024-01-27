@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 
 
@@ -23,6 +23,7 @@ export function getUrlParams(
 }
 
 export default function VideoConference() {
+    const [usename, setUsename] = useState("");
       const roomID = getUrlParams().get('roomID') || randomID(5);
       let myMeeting = async (element) => {
      // generate Kit Token
@@ -47,7 +48,7 @@ export default function VideoConference() {
           },
         ],
         scenario: {
-          mode: ZegoUIKitPrebuilt.GroupCall, // To implement 1-on-1 calls, modify the parameter here to [ZegoUIKitPrebuilt.OneONoneCall].
+          mode: ZegoUIKitPrebuilt.OneONoneCall, // To implement 1-on-1 calls, modify the parameter here to [ZegoUIKitPrebuilt.OneONoneCall].
         },
       });
 

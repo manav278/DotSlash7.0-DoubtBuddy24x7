@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './NavbarComp'
 import { Button, Col, Container, Row } from 'react-bootstrap'
-export default function Home() {
+export default function Home(props) {
+  {console.log(props.user);}
   return (
     <>
     <Navbar/>
