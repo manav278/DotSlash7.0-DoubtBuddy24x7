@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request,jsonify
 app = Flask(__name__)
 
 # ---------------------------------------------------------
@@ -28,6 +28,37 @@ def calculate_percentage(sentiments):
     neutral_percentage = (neutral_count / total) * 100
     return positive_percentage, negative_percentage, neutral_percentage
 # ---------------------------------------------------------
+
+
+# ---------------------------------------------------------
+# Below Route is for calculating Positivty Rate
+
+from nltk.sentiment import SentimentIntensityAnalyzer
+
+@app.route('/positivityrate_endpoint', methods=['POST'])
+def json_endpoint():
+    try:
+        json_obj=request.get_json()
+        comments=json_obj["reviews"]
+
+        positivepercentage=[]
+
+        for x in comments:
+            sentiments = []
+            for comment in x:
+                result = analyze_sentiment(comment)
+                sentiments.extend(result)
+        
+            positive_percentage, negative_percentage, neutral_percentage = calculate_percentage(sentiments)
+            positivepercentage.append(positive_percentage)
+        print(positivepercentage)
+
+        json_result={"positivity_rates":positivepercentage}
+        return json_result
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
 
 
 @app.route('/')

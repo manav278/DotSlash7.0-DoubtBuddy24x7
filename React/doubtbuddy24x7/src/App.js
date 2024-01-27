@@ -6,6 +6,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/Authentication/Login';
 import WatingScreen from './components/Doubtsolver/WatingScreen';
+import RangeSliders from './components/RangeSliders';
 
 function App() {
   return (
