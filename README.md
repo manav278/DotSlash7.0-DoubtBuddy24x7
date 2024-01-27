@@ -1,5 +1,5 @@
 # DoubtBuddy24x7
-DotSlash 6.0 Hackathon - DoubtBuddy24x7
+DotSlash 7.0 Hackathon - DoubtBuddy24x7
 
 
 # Existing Problem
@@ -74,8 +74,9 @@ DoubtBuddy24x7 is an innovative platform designed to facilitate collaborative pr
 
 # Tech Stack:
 MERN (Mongo, React, Express, Node)<br>
+Flask<br>
 HTML<br>
-CSS
+CSS<br>
 
 
 # Developers:
