@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export default function Techstack() {
     const [techStack, setTechSTack] = useState('');
-    // Function to handle DoubtAsker click
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
