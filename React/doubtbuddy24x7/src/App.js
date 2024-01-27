@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
+import Techstack from './components/Techstack';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/Authentication/Login';

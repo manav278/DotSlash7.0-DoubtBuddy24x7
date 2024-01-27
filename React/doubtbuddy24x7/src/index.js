@@ -21,8 +21,12 @@ root.render(
         redirect_uri: window.location.origin
       }}
     >
+<<<<<<< HEAD
+      <App />
+=======
       <App/>
       {/* <OnlineStatus/> */}
+>>>>>>> 1b7117a7a77daf615ef4e93d55ce92b6c69cad79
     </Auth0Provider>
 );
 
