@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react'
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { auto } from '@popperjs/core';
 export default function RangeSliders() {
     const [param1, setParam1] = useState(0);
@@ -72,6 +73,7 @@ export default function RangeSliders() {
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
+            
         </div >
     );
 }

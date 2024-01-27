@@ -28,8 +28,6 @@ def calculate_percentage(sentiments):
     neutral_percentage = (neutral_count / total) * 100
     return positive_percentage, negative_percentage, neutral_percentage
 # ---------------------------------------------------------
-
-
 # ---------------------------------------------------------
 # Below Route is for calculating Positivty Rate
 
@@ -76,9 +74,9 @@ def json_endpoint():
 
 
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+# @app.route('/')
+# def hello():
+#     return 'Hello, World!'
 
 if __name__ == '__main__':
     app.run(debug=True)
