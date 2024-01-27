@@ -3,6 +3,9 @@ import {
   saveUser,
   getUserByEmail,
   setOnlineStatus,
+  selectUser,
+  getMeetLink,
+  setLink,
 } from "../Database/MongoApi.js";
 import user from "../Model/user.js";
 const router = Express.Router();
@@ -37,12 +40,30 @@ router.get("/status/:status", async (req, res) => {
   if (result == null) {
     res.status(400).json({ msg: "Some Error is Their...Please try later..." });
   } else {
-    res.status(200).json({ msg: "Done" });
+    let r = await getMeetLink();
+    res.status(200).json({ link: r });
   }
 });
 
 //gets the profile information of the loggedin user
 router.get("/info", async (req, res) => {
   res.status(200).json(currentUser);
+});
+
+router.get("/match/:techstack", async (req, res) => {
+  const techstack = req.params.techstack.split(",");
+  const result = await selectUser(techstack, currentUser);
+  selectedUser = result;
+  if (result == null) {
+    res.status(400).json({
+      error: "Users are not present or some network error is their...",
+    });
+  } else {
+    return res.status(200).json(result);
+  }
+});
+
+router.post("/videoCall", (req, res) => {
+  setLink(req.body.link);
 });
 export default router;
