@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { useLocation, useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
 
 
 function randomID(len) {
@@ -24,27 +23,27 @@ export function getUrlParams(
   return new URLSearchParams(urlStr);
 }
 
-export default function VideoConference() {
-
-
+export default function VideoConferenceSolver() {
+  
+ 
   const navigate = useNavigate();
   const location = useLocation();
-  const buddy = location.state || {};
+  const meeturl = location.state || {};
   const roomID = getUrlParams().get('roomID') || randomID(5);
   const userdata = localStorage.getItem("user");
-  console.log("Hello" + buddy);
+//   console.log("Hello" + buddy);
   let myMeeting = async (element) => {
     // generate Kit Token
     const appID = 1879789699;
     const serverSecret = "11783def339ec0a947d385ec85c35b4b";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, randomID(5), userdata);
 
-
+    
 
     // Create instance object from Kit Token.
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     // start the call
-    const meeturl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID;
+    // const meeturl = window.location.protocol+'//'+window.location.host + window.location.pathname+'?roomID='+roomID;
     // setMeeturl(url);
     zp.joinRoom({
       container: element,
@@ -59,42 +58,38 @@ export default function VideoConference() {
       },
     });
     // setMeeturl(url);
-    startmeeting();
-    async function startmeeting() {
-      try {
-        const url = "http://localhost:3003/user/videoCall";
-        let result = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            "meetlink": meeturl,
-            "buddy": buddy.email
-          })
-        });
-        result = await result.json()
-        //
-        if (result) {
-          console.log(result);
-        }
+    // startmeeting();
+    // async function startmeeting(){
+    //   try {
+    //     const url = "http://localhost:3003/user/videoCall";
+    //     let result = await fetch(url, {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify({
+    //         "meetlink": meeturl,
+    //         "buddy":buddy.email
+    //     })
+    //     });
+    //     result = await result.json()
+    //     //
+    //     if (result) {
+    //       console.log(result);
+    //     }
 
-
-      } catch (e) {
-        console.error(e);
-      }
-    }
+       
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    // }
   };
 
   return (
-    <>
-      <div
-        className="myCallContainer"
-        ref={myMeeting}
-        style={{ width: '100vw', height: '100vh' }}
-      >
-      </div>
-      <button>Click</button>
-    </>
+    <div
+      className="myCallContainer"
+      ref={myMeeting}
+      style={{ width: '100vw', height: '100vh' }}
+    ></div>
   );
 }

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router';
 
 export default function WatingScreen() {
 
     const [loading, setLoading] = useState(true);
+    const user = localStorage.getItem("user");
+    const navigate = useNavigate();
     useEffect(() => {
         async function changeStatus() {
             try {
@@ -18,6 +21,38 @@ export default function WatingScreen() {
             }
         }
         changeStatus();
+
+        let result = "wait";
+        console.log(user);
+        async function checkformeetlink() {
+            try {
+                const url = `http://localhost:3003/user/videoCall/error-solver`;
+                    result = await fetch(url, {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                          "email":user
+                      })
+                      });
+                    result = await result.json()
+                    console.log(result);
+                    if (result!="wait") {
+                        clearInterval(myInterval);
+                        // navigate("/start-meeting-solver",)
+                        window.location.assign(result)
+                        // navigate("/start-meeting-solver", {"state": result})
+                        // console.log(result);
+                    }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+        // checkformeetlink();
+        
+        const myInterval = setInterval(checkformeetlink, 1000);
+
 
     }, []);
     return (

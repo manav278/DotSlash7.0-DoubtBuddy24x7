@@ -10,7 +10,7 @@ export default function Home(props) {
   
   let trimmeduser = user.name.split(" ").join("");
   console.log(trimmeduser);
-  localStorage.setItem("user",trimmeduser);
+  localStorage.setItem("user",trimmeduser+"@gmail.com");
   
 
 

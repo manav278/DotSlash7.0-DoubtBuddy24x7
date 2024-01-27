@@ -47,7 +47,6 @@ def demo():
             return jsonify({"reviews":"Neutral"})
     except Exception as e:
         return jsonify({'error': str(e)}), 400
-
 @app.route('/positivityrate_endpoint', methods=['POST'])
 def json_endpoint():
     print("Hello World")

@@ -11,6 +11,7 @@ import VideoConference from './components/VideoConference';
 import Login from './components/Authentication/Login';
 import { Auth0Provider } from '@auth0/auth0-react';
 import OnlineStatus from './components/Doubtsolver/Onlinestatus';
+import RangeSliders from './components/RangeSliders';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
       }}
     >
       <App />
+      {/* <RangeSliders/> */}
     </Auth0Provider>
 );
 
