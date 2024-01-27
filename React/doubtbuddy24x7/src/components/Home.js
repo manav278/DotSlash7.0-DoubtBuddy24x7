@@ -67,7 +67,7 @@ export default function Home(props) {
         <Row>
 
           <Col className="text-center">
-            <Button variant="primary" className="mx-4 px-5 py-3" size='lg'>
+            <Button variant="primary" onClick={()=>navigate("/doubt/ask")} className="mx-4 px-5 py-3" size='lg'>
               Ask a Doubt?
             </Button>
             <Button variant="primary" onClick={()=>navigate("/solver/wait")} className=' px-5 py-3' size='lg'>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import NavbarComp from './NavbarComp';
 
 export default function Techstack() {
     const [techStack, setTechSTack] = useState('');
@@ -16,14 +17,31 @@ export default function Techstack() {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Enter TechStack Here : <input type="text" value={techStack} onChange={(e) => setTechSTack(e.target.value)}/>
-                </label>
-                <br />
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <>
+            <NavbarComp/>
+            <div className='my-5 d-flex flex-column justify-content-center align-items-center'>
+                <form onSubmit={handleSubmit}>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <label for="exampleFormControlInput1" class="form-label h3">Tech Stack</label>
+                            </div>
+                        </div>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <input value={techStack} onChange={(e) => setTechSTack(e.target.value)} type="text" class="form-control form-control-lg" placeholder="Ex. Flutter, React, etc.." />
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary p-2 px-5">Ask</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br />
+
+                </form>
+            </div>
+        </>
     )
 }
