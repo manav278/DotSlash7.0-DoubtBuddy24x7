@@ -18,6 +18,18 @@ def analyze_sentiment(comment):
     return result
 # ---------------------------------------------------------
 
+def calculate_percentage(sentiments):
+    total = len(sentiments)
+    positive_count = sum(1 for sentiment in sentiments if sentiment['label'] == 'POSITIVE')
+    negative_count = sum(1 for sentiment in sentiments if sentiment['label'] == 'NEGATIVE')
+    neutral_count = sum(1 for sentiment in sentiments if sentiment['label'] == 'NEUTRAL')
+    positive_percentage = (positive_count / total) * 100
+    negative_percentage = (negative_count / total) * 100
+    neutral_percentage = (neutral_count / total) * 100
+    return positive_percentage, negative_percentage, neutral_percentage
+# ---------------------------------------------------------
+
+
 @app.route('/')
 def hello():
     return 'Hello, World!'
