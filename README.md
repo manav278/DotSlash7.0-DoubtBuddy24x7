@@ -71,6 +71,19 @@ DoubtBuddy24x7 is an innovative platform designed to facilitate collaborative pr
 11. ### Scalability:
     - Design the system to handle a growing user base by ensuring scalability and optimizing resource usage.
 
+# Screenshots:
+![Screenshot (47)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/cf2c5dff-37ad-495d-b532-0e21a213d737)
+![Screenshot (48)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/cb7c0393-42c3-4e35-8a63-ba4d08bc190c)
+![Screenshot (49)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/d37fb59d-9822-4506-a511-7bd9d8aa8b28)
+![Screenshot (51)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/e3c50c15-a982-4465-bed9-d102d5c01546)
+![Screenshot (52)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/4d2be9a7-35ec-4520-aeb4-b1f8cb42d0ba)
+![Screenshot (53)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/2898ab95-3a10-4bca-8d7f-55faf23f34aa)
+![Screenshot (55)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/e15a8ac8-82bf-4cca-b559-65e9da05c88d)
+![Screenshot (57)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/88e5a5c6-19ac-4b5f-b91c-90a4f7009f9e)
+![Screenshot (61)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/2cd76cc6-f813-419c-9f3f-f9ae6ef7a279)
+![Screenshot (62)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/5d19e2d4-1ef9-4801-93df-f47acd123bbe)
+![Screenshot (63)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/1cc849a4-464a-4e5a-b575-a741e969b067)
+![Screenshot (65)](https://github.com/manav278/DoubtBuddy24x7/assets/125682212/0bc302d1-c2ab-4ac7-80f9-b9bf20fb8168)
 
 # Tech Stack:
 MERN (Mongo, React, Express, Node)<br>
