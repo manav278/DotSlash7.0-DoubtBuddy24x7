@@ -36,9 +36,6 @@ export default function VideoConference() {
     const appID = 1879789699;
     const serverSecret = "11783def339ec0a947d385ec85c35b4b";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, randomID(5), userdata);
-
-
-
     // Create instance object from Kit Token.
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     // start the call
@@ -76,8 +73,6 @@ export default function VideoConference() {
         if (result) {
           console.log(result);
         }
-
-
       } catch (e) {
         console.error(e);
       }
@@ -93,7 +88,7 @@ export default function VideoConference() {
   //   return () => clearTimeout(timeoutId);
   // }, [history]);
 
-  const goforfeedback = ()=>{
+  const goforfeedback = () => {
     // navigate("/home");
   }
   const myInterval = setTimeout(goforfeedback, 50000);
@@ -106,7 +101,7 @@ export default function VideoConference() {
         ref={myMeeting}
         style={{ width: '100vw', height: '100vh' }}
       >
-        
+
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import user from "../Model/user.js";
 import { getPositivityRate } from "../Routes/nlpApi.js";
 import nodemailer from "nodemailer";
+
 //saves user in the mongodb
 async function saveUser(data) {
   const u = new user(data);
@@ -29,6 +30,8 @@ async function setStatus(status, currentUser) {
   const result = await currentUser.save();
   return result;
 }
+
+//get the online users based on techstack
 async function getOnlineUserByTechstack(techstack, currentUser) {
   try {
     let result = await user.find({
@@ -43,6 +46,7 @@ async function getOnlineUserByTechstack(techstack, currentUser) {
   }
 }
 
+//get the offline users based on techstack
 async function getOfflineUserByTechstack(techstack, lower, high) {
   const result = user.findOne(
     //query object
@@ -55,6 +59,7 @@ async function getOfflineUserByTechstack(techstack, lower, high) {
   return result;
 }
 
+//selection algorithm for finding the right doubt solver
 async function selectUser(techstack, currentUser) {
   //getting users based on onlinestatus and techstack
   const tech_users = await getOnlineUserByTechstack(techstack, currentUser);
@@ -90,7 +95,6 @@ async function selectUser(techstack, currentUser) {
         return false;
       }
     });
-    //console.log(rating_tech_users);
     if (rating_tech_users.length == 0) {
       //making range bigger
       rating_tech_users = tech_users.filter(function (obj) {
@@ -178,16 +182,7 @@ async function selectUser(techstack, currentUser) {
   }
 }
 
-// function setLink(l) {
-//   link = l;
-// }
-// let link = null;
-// async function getMeetLink(link) {
-//   while (link == null);
-//   return link;
-// }
-
-
+//sends email to the user for assistance on a doubt in case of all offline user
 function sendEmail(selectedUser, currentUser) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -220,7 +215,7 @@ function sendEmail(selectedUser, currentUser) {
     return true;
   });
 }
-// let msg;
+
 function noResponseOfEmail() {}
 let timerId;
 function gotResponseOfEmail(selectedUser) {
@@ -232,6 +227,5 @@ export {
   getUserByEmail,
   setStatus,
   selectUser,
-  // getMeetLink,
-  // setLink,
+  
 };

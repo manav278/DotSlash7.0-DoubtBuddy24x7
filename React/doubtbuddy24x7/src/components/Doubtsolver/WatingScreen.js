@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
-
 export default function WatingScreen() {
-
     const [loading, setLoading] = useState(true);
     const user = localStorage.getItem("user");
     const navigate = useNavigate();
@@ -40,20 +38,13 @@ export default function WatingScreen() {
                     console.log(result);
                     if (result!="wait") {
                         clearInterval(myInterval);
-                        // navigate("/start-meeting-solver",)
                         window.location.assign(result)
-                        // navigate("/start-meeting-solver", {"state": result})
-                        // console.log(result);
                     }
             } catch (e) {
                 console.error(e);
             }
         }
-        // checkformeetlink();
-        
         const myInterval = setInterval(checkformeetlink, 1000);
-
-
     }, []);
     return (
         <>
@@ -64,9 +55,7 @@ export default function WatingScreen() {
                 </div>
                 <div class="spinner-border text-primary" role="status">    
                 </div>
-            </div>
-
-                : null}
+            </div> : null}
         </>
     )
 }

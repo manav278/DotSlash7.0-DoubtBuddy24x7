@@ -3,9 +3,7 @@ import {
   saveUser,
   getUserByEmail,
   setStatus,
-  selectUser,
-  // getMeetLink,
-  // setLink,
+  selectUser
 } from "../Database/MongoApi.js";
 import user from "../Model/user.js";
 import { getNLPParam } from "./nlpApi.js";
@@ -39,15 +37,10 @@ router.post("/login", async (req, res) => {
 
 //route for setting up the status of the user on the website
 router.get("/status/:status", async (req, res) => {
-  
   const result = await setStatus(req.params.status, currentUser);
-  // console.log("2");
   if (result == null) {
     res.status(400).json({ msg: "Some Error is Their...Please try later..." });
   } else {
-    // console.log("3");
-    // let r = await getMeetLink();
-    // console.log("4");
     res.status(200).json({ link: "" });
   }
 });
@@ -76,7 +69,7 @@ router.post("/rating", async (req, res) => {
   let param5 = review["param5"];
   param5 = Number(param5);
   //************************************
-  
+
   let nlpResponse = await getNLPParam(review["review"]);
   let nlpTemp = nlpResponse["reviews"];
   let nlpCount;//30%
@@ -108,8 +101,8 @@ router.post("/rating", async (req, res) => {
 
 router.get("/match/:techstack", async (req, res) => {
   const techstack = req.params.techstack.split(",");
+
   const result = await selectUser(techstack, currentUser);
-  
   if (result == null) {
     res.status(400).json({
       error:
@@ -124,34 +117,23 @@ router.get("/match/:techstack", async (req, res) => {
 router.post("/videoCall", (req, res) => {
   const link = req.body.meetlink;
   const buddy = req.body.buddy;
-  // console.log(link);
-  // console.log(buddy);
   meetlink = link;
   username = buddy;
 });
 let meetlink = "";
 let username = "";
 router.post("/videoCall/error-solver", (req, res) => {
-  console.log("Hello");
   const name = req.body.email;
-  console.log(name);
-  console.log(username);
-  console.log(meetlink);
-  // console.log(name);
-  if(username && meetlink && name == username )
-  {
+  if (username && meetlink && name == username) {
     return res.status(200).json(meetlink);
   }
   return res.status(200).json("wait");
 });
 
 
-
-
 // ------------------------------
 
 router.post("/rating", async (req, res) => {
-  console.log("hello");
   let review = req.body;
   // param1=Satisfactory level of doubt solver - 20%
   let param1 = review["param1"];

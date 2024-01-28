@@ -23,12 +23,9 @@ export default function Techstack() {
                 setLoading(false);
                 setbuddy(response)
                 console.log(buddy);
-                // localStorage.setItem("currentbuddy",buddy);
-                
-                // navigate("/start-meeting")
             }
             console.log(response.data);
-            navigate("/start-meeting", {"state": response.data})
+            navigate("/start-meeting", { "state": response.data })
             setSetshowFeedbackForm(true);
             console.log(techStack);
         } catch (e) {
@@ -47,35 +44,31 @@ export default function Techstack() {
                         </div>
                         <div class="spinner-border text-primary" role="status">
                         </div>
-                    </div>
-
-                    :
-                    
-                <form onSubmit={handleSubmit}>
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <label for="exampleFormControlInput1" class="form-label h3">Tech Stack</label>
+                    </div> : <form onSubmit={handleSubmit}>
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <label for="exampleFormControlInput1" class="form-label h3">Tech Stack</label>
+                                </div>
+                            </div>
+                            <div class="row g-3 align-items-center">
+                                <div class="col-auto">
+                                    <input value={techStack} onChange={(e) => setTechSTack(e.target.value)} type="text" class="form-control form-control-lg" placeholder="Ex. Flutter, React, etc.." />
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary p-2 px-5">Ask</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <input value={techStack} onChange={(e) => setTechSTack(e.target.value)} type="text" class="form-control form-control-lg" placeholder="Ex. Flutter, React, etc.." />
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary p-2 px-5">Ask</button>
-                        </div>
-                    </div>
-                </div>
-                <br />
-            </form>
+                        <br />
+                    </form>
                 }
-                
-      <div className='d-flex text-center justify-content-center'>
-      <Link className="" to="/rangesliders">Submit Review Based upon your doubt solving experience</Link>
-      </div>
+
+                <div className='d-flex text-center justify-content-center'>
+                    <Link className="" to="/rangesliders">Submit Review Based upon your doubt solving experience</Link>
+                </div>
             </div>
-            
+
         </>
     )
 }

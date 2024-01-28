@@ -1,4 +1,8 @@
 import axios from "axios";
+
+//nlp-model calling functions for forecasting the positivity rate of the review
+
+
 async function getPositivityRate(users) {
   let usersReviews = [];
   for (let i = 0; i < users.length; i++) {

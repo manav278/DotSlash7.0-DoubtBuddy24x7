@@ -7,15 +7,15 @@ export default function Home(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = location.state || {};
-  
+
   let trimmeduser = user.name.split(" ").join("");
   console.log(trimmeduser);
-  localStorage.setItem("user",trimmeduser+"@gmail.com");
-  
+  localStorage.setItem("user", trimmeduser + "@gmail.com");
+
 
 
   useEffect(() => {
-    async function adduser(){
+    async function adduser() {
       try {
         const url = "http://localhost:3003/user/login";
         let result = await fetch(url, {
@@ -24,37 +24,37 @@ export default function Home(props) {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            "username":user.name,
-            "email":trimmeduser+"@gmail.com",
-            "onlinestatus":false
-        })
+            "username": user.name,
+            "email": trimmeduser + "@gmail.com",
+            "onlinestatus": false
+          })
         });
         result = await result.json()
         //
         if (result) {
           console.log(result);
-          localStorage.setItem("userinfo",JSON.stringify(result))
+          localStorage.setItem("userinfo", JSON.stringify(result))
         }
 
-       
+
       } catch (e) {
         console.error(e);
       }
     }
     async function changeStatus() {
       try {
-          const url = `http://localhost:3003/user/status/false`;
-          let result = await fetch(url);
-          result = await result.json()
-          //
-          if (result) {
-              console.log(result);
-          }
+        const url = `http://localhost:3003/user/status/false`;
+        let result = await fetch(url);
+        result = await result.json()
+        //
+        if (result) {
+          console.log(result);
+        }
       } catch (e) {
-          console.error(e);
+        console.error(e);
       }
-  }
-  
+    }
+
     adduser();
     // changeStatus();
   }, []);
@@ -68,12 +68,11 @@ export default function Home(props) {
           </Col>
         </Row>
         <Row>
-
           <Col className="text-center">
-            <Button variant="primary" onClick={()=>navigate("/doubt/ask")} className="mx-4 px-5 py-3" size='lg'>
+            <Button variant="primary" onClick={() => navigate("/doubt/ask")} className="mx-4 px-5 py-3" size='lg'>
               Ask a Doubt?
             </Button>
-            <Button variant="primary" onClick={()=>navigate("/solver/wait")} className=' px-5 py-3' size='lg'>
+            <Button variant="primary" onClick={() => navigate("/solver/wait")} className=' px-5 py-3' size='lg'>
               Solve a Doubt?
             </Button>
           </Col>

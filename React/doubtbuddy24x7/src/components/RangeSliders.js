@@ -1,8 +1,6 @@
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react'
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { auto } from '@popperjs/core';
 import { useNavigate } from 'react-router-dom';
 export default function RangeSliders() {
     const navigate = useNavigate();
@@ -29,6 +27,7 @@ export default function RangeSliders() {
     };
     return (
         <div>
+            <h1 className="d-flex flex-column border p-4 border-light shadow-sm rounded align-items-center text-white bg-dark">!!! Only for Doubt Askers !!!</h1>
             <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "auto" }} className="d-flex flex-column border p-4 border-light shadow-sm rounded">
                 <div className="mb-3">
                     <label htmlFor="param1" className="form-label">Satisfactory level of doubt solver:</label>

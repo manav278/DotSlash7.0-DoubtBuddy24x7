@@ -15,14 +15,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/solver/wait" element={<WatingScreen/>}></Route>
-        <Route path="/doubt/ask" element={<Techstack/>}></Route>
-        <Route path="/rangesliders" element={<RangeSliders/>}></Route>
-        <Route path="/start-meeting" element={<VideoConference/>}></Route>
-        <Route path="/start-meeting-solver" element={<VideoConferenceSolver/>}></Route>
-        <Route path="/userprofile" element={<UserProfile/>}></Route>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/solver/wait" element={<WatingScreen />}></Route>
+        <Route path="/doubt/ask" element={<Techstack />}></Route>
+        <Route path="/rangesliders" element={<RangeSliders />}></Route>
+        <Route path="/start-meeting" element={<VideoConference />}></Route>
+        <Route path="/start-meeting-solver" element={<VideoConferenceSolver />}></Route>
+        <Route path="/userprofile" element={<UserProfile />}></Route>
       </Routes>
     </BrowserRouter>
   );
