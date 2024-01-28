@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { useLocation, useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
-
 
 function randomID(len) {
   let result = '';
@@ -85,6 +83,21 @@ export default function VideoConference() {
       }
     }
   };
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     // Navigate to the desired route
+  //     history.push('/home');
+  //   }, 5000); // Change the duration as needed (in milliseconds)
+
+  //   // Cleanup function to clear the timeout if the component unmounts
+  //   return () => clearTimeout(timeoutId);
+  // }, [history]);
+
+  const goforfeedback = ()=>{
+    // navigate("/home");
+  }
+  const myInterval = setTimeout(goforfeedback, 50000);
+
 
   return (
     <>

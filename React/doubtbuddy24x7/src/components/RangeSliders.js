@@ -77,9 +77,6 @@ export default function RangeSliders() {
                     <label htmlFor="myTextarea" className="form-label">Enter Your Review:</label>
                     <textarea id="myTextarea" className="form-control" value={text} onChange={(e) => setText(e.target.value)} rows={4} cols={50} />
                 </div>
-
-                
-
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
             
