@@ -9,6 +9,7 @@ import WatingScreen from './components/Doubtsolver/WatingScreen';
 import RangeSliders from './components/RangeSliders';
 import VideoConference from './components/VideoConference';
 import VideoConferenceSolver from './components/Doubtsolver/VideoConferenceSolver';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -21,10 +22,7 @@ function App() {
         <Route path="/rangesliders" element={<RangeSliders/>}></Route>
         <Route path="/start-meeting" element={<VideoConference/>}></Route>
         <Route path="/start-meeting-solver" element={<VideoConferenceSolver/>}></Route>
-          {/* <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
+        <Route path="/userprofile" element={<UserProfile/>}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -22,7 +22,7 @@ export default function NavbarComp() {
                 </Navbar.Collapse>
                 </div>
                 <div className='mx-3'>
-                <Button className='px-5 text' variant="outline-primary">UserProfile</Button>
+                <Button className='px-5 text' href='/userprofile' variant="outline-primary">UserProfile</Button>
       
                     </div>    
             </Navbar>

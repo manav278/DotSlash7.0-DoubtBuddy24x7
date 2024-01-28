@@ -62,5 +62,5 @@ userSchema.methods = {
   }
 };
 
-const user = mongoose.model("devs", userSchema);
+const user = mongoose.model("developers", userSchema);
 export default user;

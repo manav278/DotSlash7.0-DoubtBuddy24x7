@@ -33,6 +33,7 @@ export default function Home(props) {
         //
         if (result) {
           console.log(result);
+          localStorage.setItem("userinfo",JSON.stringify(result))
         }
 
        

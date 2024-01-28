@@ -8,7 +8,16 @@ const app = Express();
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 app.use(cors());
+app.use((req, res, next) => {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allow specific HTTP methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specific headers
+  res.setHeader('Access-Control-Allow-Credentials', 'true'); // Allow credentials (cookies, Authorization headers)
 
+  // Continue to the next middleware or route handler
+  next();
+});
 try {
   await mongoose.connect(process.env.MONGODB_URI);
   console.log("Connected to MongoDB Atlas");

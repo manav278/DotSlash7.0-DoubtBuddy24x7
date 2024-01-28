@@ -32,7 +32,7 @@ export default function Techstack() {
             setSetshowFeedbackForm(true);
             console.log(techStack);
         } catch (e) {
-            console.error(e);
+            console.log(e);
         }
     };
 
@@ -70,8 +70,12 @@ export default function Techstack() {
                 <br />
             </form>
                 }
+                
+      <div className='d-flex text-center justify-content-center'>
+      <Link className="" to="/rangesliders">Submit Review Based upon your doubt solving experience</Link>
+      </div>
             </div>
-            <Link to="/rangesliders">RangeSliders</Link>
+            
         </>
     )
 }

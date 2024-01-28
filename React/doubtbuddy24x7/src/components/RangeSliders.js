@@ -3,7 +3,9 @@ import axios from 'axios';
 import { useState } from 'react'
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { auto } from '@popperjs/core';
+import { useNavigate } from 'react-router-dom';
 export default function RangeSliders() {
+    const navigate = useNavigate();
     const [param1, setParam1] = useState(0);
     const [param2, setParam2] = useState(0);
     const [param3, setParam3] = useState(0);
@@ -16,6 +18,10 @@ export default function RangeSliders() {
             // reponse->Selected User
             const response = await axios.post(`http://localhost:3003/user/rating`, { "param1": param1, "param2": param2, "param3": param3, "param4": param4, "param5": param5, "review": text });
             console.log(response);
+            if(response){
+                alert("Thank you For your Response.");
+                
+            }
 
         } catch (e) {
             console.error(e);

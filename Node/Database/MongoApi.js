@@ -67,7 +67,7 @@ async function selectUser(techstack, currentUser) {
       currentUser.rating + x
     );
     // console.log(tech_users);
-    while (selectedUser.length == 0) {
+    while (selectedUser && selectedUser.length == 0) {
       x += 100;
       selectedUser = await getOfflineUserByTechstack(
         techstack,
